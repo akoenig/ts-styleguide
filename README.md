@@ -1,8 +1,8 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# Airbnb JavaScript Style Guide() {
+# Airbnb ~~JavaScript~~ TypeScript Style Guide(unofficial) {
 
-*A mostly reasonable approach to JavaScript*
+*A mostly reasonable approach to TypeScript
 
 
 ## Table of Contents
