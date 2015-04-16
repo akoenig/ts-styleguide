@@ -127,7 +127,7 @@
 
   - Use the literal syntax for array creation.
 
-    ```javascript
+    ```typescript
     // bad
     var items = new Array();
 
@@ -137,7 +137,7 @@
 
   - Use Array#push instead of direct assignment to add items to an array.
 
-    ```javascript
+    ```typescript
     var someStack = [];
 
 
@@ -150,7 +150,7 @@
 
   - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
-    ```javascript
+    ```typescript
     var len = items.length;
     var itemsCopy = [];
     var i;
@@ -166,7 +166,7 @@
 
   - To convert an array-like object to an array, use Array#slice.
 
-    ```javascript
+    ```typescript
     function trigger() {
         var args = Array.prototype.slice.call(arguments);
         ...
@@ -180,7 +180,7 @@
 
   - Use single quotes `''` for strings.
 
-    ```javascript
+    ```typescript
     // bad
     var name = "Bob Parr";
 
@@ -197,7 +197,7 @@
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
   - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
-    ```javascript
+    ```typescript
     // bad
     var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
@@ -215,7 +215,7 @@
 
   - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
-    ```javascript
+    ```typescript
     var items;
     var messages;
     var length;
@@ -264,7 +264,7 @@
 
   - Function expressions:
 
-    ```javascript
+    ```typescript
     // anonymous function expression
     var anonymous = function() {
         return true;
@@ -284,7 +284,7 @@
   - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
   - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
-    ```javascript
+    ```typescript
     // bad
     if (currentUser) {
         function test() {
@@ -303,7 +303,7 @@
 
   - Never name a parameter `arguments`. This will take precedence over the `arguments` object that is given to every function scope.
 
-    ```javascript
+    ```typescript
     // bad
     function nope(name, options, arguments) {
         // ...stuff...
@@ -323,7 +323,7 @@
 
   - Use dot notation when accessing properties.
 
-    ```javascript
+    ```typescript
     var luke = {
         jedi: true,
         age: 28
@@ -338,7 +338,7 @@
 
   - Use subscript notation `[]` when accessing properties with a variable.
 
-    ```javascript
+    ```typescript
     var luke = {
         jedi: true,
         age: 28
@@ -358,7 +358,7 @@
 
   - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
-    ```javascript
+    ```typescript
     // bad
     superPower = new SuperPower();
 
@@ -371,7 +371,7 @@
     to worry about swapping out a `;` for a `,` or introducing punctuation-only
     diffs.
 
-    ```javascript
+    ```typescript
     // bad
     var items = getItems(),
         goSportsTeam = true,
@@ -391,7 +391,7 @@
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
-    ```javascript
+    ```typescript
     // bad
     var i, len, dragonball,
         items = getItems(),
@@ -414,7 +414,7 @@
 
   - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
 
-    ```javascript
+    ```typescript
     // bad
     function() {
         test();
@@ -477,7 +477,7 @@
 
   - Variable declarations get hoisted to the top of their scope, but their assignment does not.
 
-    ```javascript
+    ```typescript
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
     function example() {
@@ -505,7 +505,7 @@
 
   - Anonymous function expressions hoist their variable name, but not the function assignment.
 
-    ```javascript
+    ```typescript
     function example() {
         console.log(anonymous); // => undefined
 
@@ -519,7 +519,7 @@
 
   - Named function expressions hoist the variable name, not the function name or the function body.
 
-    ```javascript
+    ```typescript
     function example() {
         console.log(named); // => undefined
 
@@ -547,7 +547,7 @@
 
   - Function declarations hoist their name and the function body.
 
-    ```javascript
+    ```typescript
     function example() {
         superPower(); // => Flying
 
@@ -575,7 +575,7 @@
     + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
-    ```javascript
+    ```typescript
     if ([0]) {
       // true
       // An array is an object, objects evaluate to true
@@ -584,7 +584,7 @@
 
   - Use shortcuts.
 
-    ```javascript
+    ```typescript
     // bad
     if (name !== '') {
       // ...stuff...
@@ -615,7 +615,7 @@
 
   - Use braces with all multi-line blocks.
 
-    ```javascript
+    ```typescript
     // bad
     if (test)
         return false;
@@ -640,7 +640,7 @@
   - If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
     `if` block's closing brace.
 
-    ```javascript
+    ```typescript
     // bad
     if (test) {
         thing1();
@@ -667,7 +667,7 @@
 
   - Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
 
-    ```javascript
+    ```typescript
     // bad
     // make() returns a new element
     // based on the passed in tag name
@@ -699,7 +699,7 @@
 
   - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
 
-    ```javascript
+    ```typescript
     // bad
     var active = true;  // is current tab
 
@@ -731,7 +731,7 @@
 
   - Use `// FIXME:` to annotate problems.
 
-    ```javascript
+    ```typescript
     function Calculator() {
 
         // FIXME: shouldn't use a global here
@@ -743,7 +743,7 @@
 
   - Use `// TODO:` to annotate solutions to problems.
 
-    ```javascript
+    ```typescript
     function Calculator() {
 
         // TODO: total should be configurable by an options param
@@ -801,7 +801,7 @@
 
   - Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
 
-    ```javascript
+    ```typescript
     // bad
     if(isJedi) {
         fight ();
@@ -825,7 +825,7 @@
 
   - Set off operators with spaces.
 
-    ```javascript
+    ```typescript
     // bad
     var x=y+5;
 
@@ -835,14 +835,14 @@
 
   - End files with a single newline character.
 
-    ```javascript
+    ```typescript
     // bad
     (function(global) {
       // ...stuff...
     })(this);
     ```
 
-    ```javascript
+    ```typescript
     // bad
     (function(global) {
       // ...stuff...
@@ -850,7 +850,7 @@
     ↵
     ```
 
-    ```javascript
+    ```typescript
     // good
     (function(global) {
       // ...stuff...
@@ -860,7 +860,7 @@
   - Use indentation when making long method chains. Use a leading dot, which
     emphasizes that the line is a method call, not a new statement.
 
-    ```javascript
+    ```typescript
     // bad
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
@@ -899,7 +899,7 @@
 
   - Leave a blank line after blocks and before the next statement
 
-    ```javascript
+    ```typescript
     // bad
     if (foo) {
       return bar;
@@ -934,14 +934,13 @@
     return obj;
     ```
 
-
 **[⬆ back to top](#table-of-contents)**
 
 ## Commas
 
   - Leading commas: **Nope.**
 
-    ```javascript
+    ```typescript
     // bad
     var story = [
         once
@@ -977,7 +976,7 @@
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
-    ```javascript
+    ```typescript
     // bad
     var hero = {
       firstName: 'Kevin',
@@ -1008,7 +1007,7 @@
 
   - **Yup.**
 
-    ```javascript
+    ```typescript
     // bad
     (function() {
       var name = 'Skywalker'
@@ -1038,7 +1037,7 @@
   - Perform type coercion at the beginning of the statement.
   - Strings:
 
-    ```javascript
+    ```typescript
     //  => this.reviewScore = 9;
 
     // bad
@@ -1056,7 +1055,7 @@
 
   - Use `parseInt` for Numbers and always with a radix for type casting.
 
-    ```javascript
+    ```typescript
     var inputValue = '4';
 
     // bad
@@ -1080,7 +1079,7 @@
 
   - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
 
-    ```javascript
+    ```typescript
     // good
     /**
      * parseInt was the reason my code was slow.
@@ -1092,7 +1091,7 @@
 
   - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109). Largest signed 32-bit Int is 2,147,483,647:
 
-    ```javascript
+    ```typescript
     2147483647 >> 0 //=> 2147483647
     2147483648 >> 0 //=> -2147483648
     2147483649 >> 0 //=> -2147483647
@@ -1100,7 +1099,7 @@
 
   - Booleans:
 
-    ```javascript
+    ```typescript
     var age = 0;
 
     // bad
@@ -1120,7 +1119,7 @@
 
   - Avoid single letter names. Be descriptive with your naming.
 
-    ```javascript
+    ```typescript
     // bad
     function q() {
       // ...stuff...
@@ -1134,7 +1133,7 @@
 
   - Use camelCase when naming objects, functions, and instances.
 
-    ```javascript
+    ```typescript
     // bad
     var OBJEcttsssss = {};
     var this_is_my_object = {};
@@ -1153,7 +1152,7 @@
 
   - Use PascalCase when naming constructors or classes.
 
-    ```javascript
+    ```typescript
     // bad
     function user(options) {
       this.name = options.name;
@@ -1175,7 +1174,7 @@
 
   - Use a leading underscore `_` when naming private properties.
 
-    ```javascript
+    ```typescript
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
@@ -1186,7 +1185,7 @@
 
   - When saving a reference to `this` use `_this`.
 
-    ```javascript
+    ```typescript
     // bad
     function() {
       var self = this;
@@ -1214,7 +1213,7 @@
 
   - Name your functions. This is helpful for stack traces.
 
-    ```javascript
+    ```typescript
     // bad
     var log = function(msg) {
       console.log(msg);
@@ -1229,7 +1228,7 @@
   - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
 
   - If your file exports a single class, your filename should be exactly the name of the class.
-    ```javascript
+    ```typescript
     // file contents
     class CheckBox {
       // ...
@@ -1255,7 +1254,7 @@
   - Accessor functions for properties are not required.
   - If you do make accessor functions use getVal() and setVal('hello').
 
-    ```javascript
+    ```typescript
     // bad
     dragon.age();
 
@@ -1271,7 +1270,7 @@
 
   - If the property is a boolean, use isVal() or hasVal().
 
-    ```javascript
+    ```typescript
     // bad
     if (!dragon.age()) {
       return false;
@@ -1285,7 +1284,7 @@
 
   - It's okay to create get() and set() functions, but be consistent.
 
-    ```javascript
+    ```typescript
     function Jedi(options) {
       options || (options = {});
       var lightsaber = options.lightsaber || 'blue';
@@ -1308,7 +1307,7 @@
 
   - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
-    ```javascript
+    ```typescript
     function Jedi() {
       console.log('new jedi');
     }
@@ -1336,7 +1335,7 @@
 
   - Methods can return `this` to help with method chaining.
 
-    ```javascript
+    ```typescript
     // bad
     Jedi.prototype.jump = function() {
       this.jumping = true;
@@ -1371,7 +1370,7 @@
 
   - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
-    ```javascript
+    ```typescript
     function Jedi(options) {
       options || (options = {});
       this.name = options.name || 'no name';
@@ -1427,7 +1426,7 @@
   - Add a method called `noConflict()` that sets the exported module to the previous version and returns this one.
   - Always declare `'use strict';` at the top of the module.
 
-    ```javascript
+    ```typescript
     // fancyInput/fancyInput.js
 
     !function(global) {
@@ -1455,7 +1454,7 @@
 
   - Prefix jQuery object variables with a `$`.
 
-    ```javascript
+    ```typescript
     // bad
     var sidebar = $('.sidebar');
 
@@ -1465,7 +1464,7 @@
 
   - Cache jQuery lookups.
 
-    ```javascript
+    ```typescript
     // bad
     function setSidebar() {
       $('.sidebar').hide();
@@ -1493,7 +1492,7 @@
   - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - Use `find` with scoped jQuery object queries.
 
-    ```javascript
+    ```typescript
     // bad
     $('ul', '.sidebar').hide();
 
@@ -1524,7 +1523,7 @@
 
   - **Yup.**
 
-    ```javascript
+    ```typescript
     function() {
       return true;
     }
