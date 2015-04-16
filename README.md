@@ -49,9 +49,9 @@
     + `null`
     + `undefined`
 
-    ```javascript
-    var foo = 1;
-    var bar = foo;
+    ```typescript
+    var foo:number = 1;
+    var bar:any = foo;
 
     bar = 9;
 
@@ -63,9 +63,9 @@
     + `array`
     + `function`
 
-    ```javascript
-    var foo = [1, 2];
-    var bar = foo;
+    ```typescript
+    var foo:Array<number> = [1, 2];
+    var bar:any = foo;
 
     bar[0] = 9;
 
@@ -78,25 +78,25 @@
 
   - Use the literal syntax for object creation.
 
-    ```javascript
+    ```typescript
     // bad
-    var item = new Object();
+    var item:Object = new Object();
 
     // good
-    var item = {};
+    var item:Object = {};
     ```
 
   - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
 
-    ```javascript
+    ```typescript
     // bad
-    var superman = {
+    var superman:Object = {
       default: { clark: 'kent' },
       private: true
     };
 
     // good
-    var superman = {
+    var superman:Object = {
       defaults: { clark: 'kent' },
       hidden: true
     };
@@ -104,19 +104,19 @@
 
   - Use readable synonyms in place of reserved words.
 
-    ```javascript
+    ```typescript
     // bad
-    var superman = {
+    var superman:Object = {
       class: 'alien'
     };
 
     // bad
-    var superman = {
+    var superman:Object = {
       klass: 'alien'
     };
 
     // good
-    var superman = {
+    var superman:Object = {
       type: 'alien'
     };
     ```
