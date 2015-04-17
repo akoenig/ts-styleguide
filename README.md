@@ -1250,7 +1250,7 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - There is no need to save a reference to `this`. Just use a fat arrow function.
 
     ```typescript
     // bad
@@ -1261,19 +1261,10 @@
       };
     }
 
-    // bad
-    function() {
-      var that = this;
-      return function() {
-        console.log(that);
-      };
-    }
-
     // good
     function() {
-      var _this = this;
-      return function() {
-        console.log(_this);
+      return () => {
+        console.log(this);
       };
     }
     ```
