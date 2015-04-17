@@ -41,6 +41,13 @@
 
 ## Types
 
+  * Types should be used whenever necessary.
+  * Arrays should be defined with the help of Generics as `Array<type>` instead of type[].
+  * Use the `any` type sparingly, it is always better to define an interface.
+  * Always define the return type of functions.
+  * If TypeScript is capable of implicitly determining the return type of a function, then it is unnecessary to define the return type.
+  * Always define the types of variables/parameters unless TypeScript can implicitly infer their type.
+
   - **Primitives**: When you access a primitive type you work directly on its value.
 
     + `string`
@@ -53,7 +60,7 @@
     var foo: number = 1;
     var bar: any = foo;
 
-    bar = 9;
+    ˘bar = 9;
 
     console.log(foo, bar); // => 1, 9
     ```
