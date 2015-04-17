@@ -25,6 +25,8 @@
   1. [Naming Conventions](#naming-conventions)
   1. [Accessors](#accessors)
   1. [Constructors](#constructors)
+  1. [Class](#class)
+    - [Class members](#class-members)
   1. [Events](#events)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
@@ -1453,6 +1455,47 @@
 
 **[⬆ back to top](#table-of-contents)**
 
+## Class
+
+### Class members
+
+  - Public instance variables do not need a `public` declaration. Each member is `public` by default.
+  ```typescript
+  // bad
+  public name: string;
+
+  // good
+  name: string;
+  ```
+
+  - Private instance variables do need a `private` declaration. 
+  
+    ```typescript
+    // bad
+    location: string;
+
+    // good
+    private location name: string;
+    ```
+
+  - As a shorthand any class member (`private` or `public`) can be created and initialized by using constructor parameters.
+  
+    ```typescript
+    // bad
+    class Person {  
+        name:string;        
+        constructor(name: string) {
+              this.name = name;
+        }
+    }
+
+    // good
+    class Person {
+        constructor(public name: string) {
+
+        }
+    }
+    ```
 
 ## Events
 
