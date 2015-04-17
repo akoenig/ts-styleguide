@@ -321,6 +321,15 @@
         return '<ul>' + itemsList.join('') + '</ul>';
     }
     ```
+  
+  - For any string interpolation use ES6 template string 
+
+    ```typescript
+    // good
+    var name: string = 'joe';
+    var message = `The name is ${name}.`; 
+    ```
+
 
 **[⬆ back to top](#table-of-contents)**
 
