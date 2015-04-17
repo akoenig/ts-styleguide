@@ -248,16 +248,16 @@
 
     ```typescript
     // bad
-    var name = "Bob Parr";
+    var name: string = "Bob Parr";
 
     // good
-    var name = 'Bob Parr';
+    var name: string = 'Bob Parr';
 
     // bad
-    var fullName = "Bob " + this.lastName;
+    var fullName: string = "Bob " + this.lastName;
 
     // good
-    var fullName = 'Bob ' + this.lastName;
+    var fullName: string = 'Bob ' + this.lastName;
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
@@ -265,16 +265,16 @@
 
     ```typescript
     // bad
-    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+    var errorMessage: string = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
     // bad
-    var errorMessage = 'This is a super long error that was thrown because \
+    var errorMessage: string = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
     // good
-    var errorMessage = 'This is a super long error that was thrown because ' +
+    var errorMessage: string = 'This is a super long error that was thrown because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
     ```
@@ -282,10 +282,9 @@
   - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```typescript
-    var items;
-    var messages;
-    var length;
-    var i;
+    var messages: Array<Object>;
+    var length: number;
+    var i: number;
 
     messages = [{
         state: 'success',
@@ -302,7 +301,7 @@
 
     // bad
     function inbox(messages) {
-        items = '<ul>';
+        var items: string = '<ul>';
 
         for (i = 0; i < length; i++) {
             items += '<li>' + messages[i].message + '</li>';
@@ -313,13 +312,13 @@
 
     // good
     function inbox(messages) {
-        items = [];
+        var items: Array<string> = [];
 
         for (i = 0; i < length; i++) {
-            items[i] = '<li>' + messages[i].message + '</li>';
+            itemsList[i] = '<li>' + messages[i].message + '</li>';
         }
 
-        return '<ul>' + items.join('') + '</ul>';
+        return '<ul>' + itemsList.join('') + '</ul>';
     }
     ```
 
