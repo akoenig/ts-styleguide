@@ -41,11 +41,71 @@
 
 ## Types
 
-  * Types should be used whenever necessary.
-  * Arrays should be defined with the help of Generics as `Array<type>` instead of type[].
-  * Use the `any` type sparingly, it is always better to define an interface.
-  * Always define the return type of functions (even if nothing will be returned `void`)
-  * Always define the types of variables/parameters
+  - Types should be used whenever necessary.
+
+    ```typescript
+    // bad
+    var foo = 1;
+
+    // good
+    var foo: number = 1;
+    ```
+
+  - Arrays should be defined with the help of Generics as `Array<type>` instead of type[].
+
+  ```typescript
+  // bad
+  var foo = [1, 2, 3];
+
+  // good
+  var foo: Array<number> = [1, 2, 3];
+  ```
+
+  - Use the `any` type sparingly, it is always better to define an interface.
+
+  ```typescript
+  // bad
+  var person: any = {
+      name: string
+  };
+
+  // good
+  interface IPerson {
+      name: string
+  }
+
+  var person: IPerson = {
+      name: 'André König'
+  };
+  ```
+
+  - Always define the return type of functions (even if nothing will be returned: `void`)
+
+  ```typescript
+  // bad
+  function foo () {
+      return 'bar';
+  }
+
+  // good
+  function foo () : string {
+      return 'bar';
+  }
+  ```
+
+  - Always define the types of variables/parameters
+
+  ```typescript
+  // bad
+  function (foo) {
+      console.log(foo);
+  }
+
+  // good
+  function (foo: string) {
+      console.log(foo);
+  }
+  ```
 
   - **Primitives**: When you access a primitive type you work directly on its value.
 
