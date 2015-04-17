@@ -1217,12 +1217,15 @@
     });
     ```
 
-  - Use PascalCase when naming constructors or classes.
+  - Use PascalCase when naming classes.
 
     ```typescript
     // bad
-    function user(options) {
-      this.name = options.name;
+    class user {
+      name: string;
+      constructor(options: object){
+        this.name = options.name;
+      }
     }
 
     var bad = new user({
@@ -1230,8 +1233,11 @@
     });
 
     // good
-    function User(options) {
-      this.name = options.name;
+    class User {
+      name: string;
+      constructor(options: object){
+        this.name = options.name;
+      }
     }
 
     var good = new User({
