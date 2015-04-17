@@ -196,17 +196,16 @@
 
     ```typescript
     // bad
-    var items = new Array();
+    var items: Array<string> = new Array();
 
     // good
-    var items = [];
+    var items: Array<string> = [];
     ```
 
   - Use Array#push instead of direct assignment to add items to an array.
 
     ```typescript
-    var someStack = [];
-
+    var someStack: Array<string> = [];
 
     // bad
     someStack[someStack.length] = 'abracadabra';
@@ -218,9 +217,9 @@
   - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```typescript
-    var len = items.length;
-    var itemsCopy = [];
-    var i;
+    var len: number = items.length;
+    var itemsCopy: Array<number> = [];
+    var i: number;
 
     // bad
     for (i = 0; i < len; i++) {
