@@ -1239,17 +1239,6 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties.
-
-    ```typescript
-    // bad
-    this.__firstName__ = 'Panda';
-    this.firstName_ = 'Panda';
-
-    // good
-    this._firstName = 'Panda';
-    ```
-
   - There is no need to save a reference to `this`. Just use a fat arrow function.
 
     ```typescript
@@ -1381,6 +1370,33 @@
 
     // good
     private location name: string;
+    ```
+
+  - By default don't use a leading underscore `_` to name private members
+
+    ```typescript
+    // bad
+    private _firstName = 'Panda';
+
+    // good
+    private firstName = 'Panda';
+    ```
+
+  - Use a leading underscore `_` to name a private member, if this member is needed by same named getter / setter method
+
+    ```typescript
+    // good
+    class Person {
+        private _name: string = null;
+
+        get name (): string {
+            return this._name;
+        }
+
+        set name (value: string): void {
+         this._name = value;
+        }
+    }
     ```
 
   - As a shorthand any class member (`private` or `public`) can be created and initialized by using constructor parameters.
