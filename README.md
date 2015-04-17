@@ -50,8 +50,8 @@
     + `undefined`
 
     ```typescript
-    var foo:number = 1;
-    var bar:any = foo;
+    var foo: number = 1;
+    var bar: any = foo;
 
     bar = 9;
 
@@ -64,8 +64,8 @@
     + `function`
 
     ```typescript
-    var foo:Array<number> = [1, 2];
-    var bar:any = foo;
+    var foo: Array<number> = [1, 2];
+    var bar: any = foo;
 
     bar[0] = 9;
 
@@ -80,23 +80,23 @@
 
     ```typescript
     // bad
-    var item:Object = new Object();
+    var item: Object = new Object();
 
     // good
-    var item:Object = {};
+    var item: Object = {};
     ```
 
   - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
 
     ```typescript
     // bad
-    var superman:Object = {
+    var superman: Object = {
         default: { clark: 'kent' },
         private: true
     };
 
     // good
-    var superman:Object = {
+    var superman: Object = {
         defaults: { clark: 'kent' },
         hidden: true
     };
@@ -106,17 +106,17 @@
 
     ```typescript
     // bad
-    var superman:Object = {
+    var superman: Object = {
         class: 'alien'
     };
 
     // bad
-    var superman:Object = {
+    var superman: Object = {
         klass: 'alien'
     };
 
     // good
-    var superman:Object = {
+    var superman: Object = {
         type: 'alien'
     };
     ```
