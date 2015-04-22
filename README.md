@@ -1482,7 +1482,7 @@
   };
   ```
   
-  - The module export definition should be an instruction **before** your code but **after** the imports:
+  - The module export definition should be the last statement(s) within the file:
 
   ```typescript
   // bad
@@ -1493,17 +1493,20 @@
   }
 
   export default Car;
+
+  let foo: string = 'bar'
   ```
 
   ```typescript
   // good
   import { Foo } from './Foo';
 
-  export default Car;
-
   class Car {
 
   }
+
+  export default Car;
+
   ```
 
 **[⬆ back to top](#table-of-contents)**
