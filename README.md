@@ -1467,7 +1467,16 @@
   - When using modules (and we can not encourage you enough to do so) make sure to use the ES6 module definition (not the TypeScript own modules)
 
   ```typescript
+  // bad
+  module Validation {
+      export interface doSomething {
+          isAcceptable(s: string): boolean;
+      }
+  }
+  ```
 
+  ```typescript
+  // good
   export default function doSomething () {
 
   };
@@ -1477,6 +1486,7 @@
 
   ```typescript
   // bad
+  import { Foo } from './Foo';
 
   class Car {
 
@@ -1487,6 +1497,8 @@
 
   ```typescript
   // good
+  import { Foo } from './Foo';
+
   export default Car;
 
   class Car {
