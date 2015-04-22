@@ -1482,7 +1482,7 @@
   };
   ```
   
-  - The module export definition should be the first instruction in your file:
+  - The module export definition should be an instruction **before** your code but **after** the imports:
 
   ```typescript
   // bad
